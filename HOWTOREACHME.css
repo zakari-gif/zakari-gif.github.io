@@ -1,0 +1,321 @@
+a {
+    color: #fff;
+    text-decoration: none;
+}
+* {
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.boxes {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+}
+.boxes div {
+    font-size: 1rem;
+    border: 1px #fff solid;
+    border-top-color: rgb(255, 255, 255);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(255, 255, 255);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(255, 255, 255);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    padding: 1.5rem 2.5rem;
+    padding-top: 1.5rem;
+    padding-right: 7rem;
+    padding-bottom: 1.5rem;
+    padding-left: 7rem;
+    margin-bottom: 3rem;
+    transition: all 0.5s ease-out;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    transition-delay: 0s;
+}
+
+.boxes div:hover {
+  padding: 1rem;
+  background: #0692f6;
+  color: #000;
+}
+.boxes div:hover span {
+  color: #000;
+}
+
+
+@media screen and (max-width: 768px)
+main {
+    align-items: center;
+    text-align: center;
+}
+body {
+    background: #000000;
+    color: #fff;
+    height: 100%;
+    margin: 10;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+}
+
+body {
+    display: block;
+    margin: 8px;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+main {
+    padding: 4rem;
+    padding-top: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 4rem;
+    min-height: calc(100vh - 60px);
+    align-items: center;
+    text-align: center;
+}
+
+main {
+    display: block;
+}
+
+#main-footer {
+    margin-bottom: 5rem;
+    text-align: center;
+    padding: 1rem;
+    padding-top: 1rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+
+}
+h1, h2, h3 {
+    margin: 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-weight: 400;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+h1.sm-heading, h2.sm-heading, h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    padding-top: 0.2rem;
+    padding-right: 1rem;
+    padding-bottom: 0.2rem;
+    padding-left: 1rem;
+    background: rgba(73, 73, 73, 0.5);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgba(73, 73, 73, 0.5);
+}
+.form {
+    border-radius: 5px;
+    background: rgba(73, 73, 73, 0.5);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgba(73, 73, 73, 0.5);
+    padding: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.text-secondary {
+    color: #0727f5;
+}
+
+.menu-branding .portrait {
+    width: 150px;
+    height: 200px;
+    background: url(image1.jpg);
+    background-image: url(image1.jpg);
+    background-position-y: center;
+    background-size: cover;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    border-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border: solid 3px #0727f5;
+    border-top-color: rgb(7, 39, 245);
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(7, 39, 245);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-bottom-color: rgb(7, 39, 245);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-left-color: rgb(7, 39, 245);
+    border-left-style: solid;
+    border-left-width: 3px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.menu-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: #fff;
+  transition: all 0.5s ease-out;
+}
+
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+}
+.menu.show {
+  visibility: visible;
+}
+.menu-branding,
+.menu-nav {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.menu-nav {
+  margin: 0;
+  padding: 0;
+  background: #373737;
+  list-style: none;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.5s ease-out;
+}
+.menu-nav.show {
+  transform: translate3d(0, 0, 0);
+}
+.menu-branding {
+  background: #444;
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.5s ease-out;
+}
+.menu-branding.show {
+  transform: translate3d(0, 0, 0);
+}
+
+
+
+
+
+
+.menu .nav-item {
+  transform: translate3d(600px, 0, 0);
+  transition: all 0.5s ease-out;
+}
+.menu .nav-item.show {
+  transform: translate3d(0, 0, 0);
+}
+.menu .nav-item.current > a {
+  color: #0606f6;
+}
+.menu .nav-link {
+  display: inline-block;
+  position: relative;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.5s ease-out;
+}
+.menu .nav-link:hover {
+  color: #020ff5;
+}
+
+
+
+
+h1.lg-heading,
+h2.lg-heading,
+h3.lg-heading {
+  font-size: 8vw;
+}
+
+
+
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+
