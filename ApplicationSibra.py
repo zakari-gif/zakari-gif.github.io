@@ -7,7 +7,7 @@ Created on Sun Mar  7 01:36:28 2021
 """
 import data1 as PiscinePatinoireCampus 
 import data2 as PoisyParcDesGlaisins
-from StructureArc import Graphe
+from StructureArc import IntineraireBUS
 from StructureNoeud import ArretBUS
 import networkx
 import matplotlib.pyplot as plt
@@ -23,6 +23,7 @@ def Creationgraphe():
         for i in range(len(name2)-1):
             G.add_edge(name2[i], name2[i+1], poids = 1)
     return G
+print(Creationgraphe())
 "----------------------------Graphe Weekend--------------------------------------------------"
 def CreationgrapheWeekend():
     for i in range(len(name1)-1):
@@ -103,8 +104,8 @@ def shortest(depart,arrive,weekend):
     chemin=networkx.shortest_path(Graphe,depart,arrive)
     return chemin
 #test
-#a=shortest("Impérial","CAMPUS",False)
-#print(a)
+a=shortest("Impérial","CAMPUS",False)
+print(a)
 
 
 "----------------------fastest(Fonction calculant le trajet qui prend le moins de temps de transport)------"
@@ -134,7 +135,7 @@ g = {
         'Pommaries' : ['Impérial','VIGNIÈRES'],
         'CAMPUS' : ['VIGNIÈRES'],
     }   
-graphe = Graphe(g)
+graphe = IntineraireBUS(g)
 
 def fastest(start_node, end_node, time,weekend,ligne): #Elle marche bien mais elle me renvoie un resultat douteux
     toti=convertir_En_seconde(time)
@@ -175,7 +176,7 @@ def fastest(start_node, end_node, time,weekend,ligne): #Elle marche bien mais el
     print("Votre heure d'arrivé est:"+H)
     print("Temps de trajet minimal " , Horraire_Seconde_format(min(ListeTemps)))
     
-#print(fastest("Vernod","CAMPUS","10:10",False,1))
+print(fastest("Vernod","CAMPUS","10:10",False,1))
 
 
 "----------------------foremost(Fonction calculant le trajet qui arrive au plus tôt)--------------------"
@@ -187,9 +188,11 @@ def foremost(ligne,weekend,heure,Arretdepart,Arretarrive,chemin=[]):
     GrapheWeekend=CreationgrapheWeekend()
     d=ArretBUS(Arretdepart,PiscinePatinoireCampus,PoisyParcDesGlaisins,ligne,[],[],[])
     LesArretsquisuivent=d.getArretsuivant()
-    nextime=prochainBUS(ligne,Arretdepart,heure,weekend)
     if ligne==2:
-        LesArretsquisuivent=d.getArretprecedent() # ca ne marche pas toujours pa si il s'agit du terminus,je ne pas pu debugger
+        LesArretsquisuivent=d.getArretprecedent() # ca ne marche pas toujours pas si il s'agit du terminus,je ne pas pu debugger
+    nextime=prochainBUS(ligne,Arretdepart,heure,weekend)
+    if nextime=="NOUS N'AVONS PAS DE TRAGET POUR VOUS":
+        return "NOUS N'AVONS PAS DE TRAGET POUR VOUS"
     h_splited =nextime.split(":")
     heures = int(h_splited[0])*60*60       
     minutes = int(h_splited[1])*60
@@ -222,10 +225,11 @@ def foremost(ligne,weekend,heure,Arretdepart,Arretarrive,chemin=[]):
         else:
             return foremost(ligne,weekend,heuredepartleplusproche,ArretAajouterdanschemin,Arretarrive,chemin)
 
-#x=foremost(1,True,'9:43',"Impérial","CAMPUS",[])
-#print(x)
-print("-----Bienvenu Dans l'application Sibra------------")
-def SIBRA():
+x=foremost(1,True,'9:43',"Impérial","CAMPUS",[])
+print(x)
+print("-----Bienvenue Dans l'application Sibra------------")
+listeArret=['POISY_COLLÈGE','LYCÉE_DE_POISY','POISY_COLLÈGE', 'Meythet_Le_Rabelais','Vernod', 'Chorus','Meythet_Le_Rabelais', 'Mandallaz','Mandallaz','GARE', 'Chorus','GAREMandallaz', 'France_Barattes', 'Bonlieu','Courier','C.E.S._Barattes','GARE','France_Barattes','VIGNIÈRES','Ponchy','C.E.S._Barattes','CAMPUS','Pommaries','VIGNIÈRES','PARC_DES_GLAISINS','Ponchy','PISCINE-PATINOIRE','PARC_DES_GLAISINS','Arcadium','PISCINE-PATINOIRE','Parc_des_Sports','Place_des_Romains','Arcadium','Parc_des_Sports','Courier','Place_des_Romains','GARE','GARE','Préfecture_Pâquier','Bonlieu','Impérial','Préfecture_Pâquier','Pommaries','Impérial','VIGNIÈRES','VIGNIÈRES',]
+def SIBRA(l):
     Graphe=Creationgraphe()
     GrapheWeekend=CreationgrapheWeekend()
     x=input("Vous voulez voyagez? OUI/NON:")
@@ -233,10 +237,32 @@ def SIBRA():
         print("Aurevoir à bientot")
         break
     while x=="o":
-        ligne = int(input("Sur Quelle ligne?")) # C'est le sens....il faut obligatoirement saisir le bon sens
+        boole=True
+        while boole:
+            try:# C'est le sens....il faut obligatoirement saisir le bon sens
+                ligne = int(input("Veuillez saisir un numero de ligne valide svp ?"))
+                boole=False
+            except:
+                print("Votre Numero de ligne n'est pas valide")
+                boole=True
         heure = input("Quelle heure est-il?")
+        while ":" not in heure and len(heure.split(':'))!=2:
+            try:
+               heure = input("Quelle heure est-il?")
+            except:
+                print("Le Format heure n'est pas valide")
         Arretdepart = input("A quel arrêt vous trouvez vous?")
+        while Arretdepart not in l:
+            try:
+                Arretdepart = input("Veuillez saisir un arret valide?")
+            except:
+                print("Invalide")
         Arretarrive = input("A quel arrêt vous voulez allez ?")
+        while Arretarrive not in l:
+            try:
+                Arretarrive = input("veuillez saisir un arret valide ?")
+            except:
+                print("Invalide")
         weekend = bool(input("weekend ? True/False :"))
         if weekend=="f":
             weekend=bool(False)
@@ -244,7 +270,7 @@ def SIBRA():
             weekend=bool(True)
         relence=True
         while relence==True:
-            option=input("Vous optez pour quelle option (shortest,formost,fastest):")
+            option=input("Vous optez pour quelle option (shortest,Formost,fastest):")
             if option=="s":
                 print("le plus court chemin en nombre d'arret est:",shortest(Arretdepart,Arretarrive,weekend))
                 relence=False
@@ -258,4 +284,4 @@ def SIBRA():
                 print("Desolé veuillez corriger votre choix")
                 relence=True
 #test General
-test=SIBRA()
+test=SIBRA(listeArret)
